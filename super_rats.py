@@ -1,4 +1,3 @@
-import time
 import random
 import statistics
 from config import *
