@@ -1,25 +1,7 @@
 import time
 import random
 import statistics
-
-GOAL = 50000
-NUM_RATS = 20
-
-INITIAL_MIN_WT = 200
-INITIAL_MAX_WT = 600
-INITIAL_MODE_WT = 300
-
-MUTATE_ODDS = .01
-MUTATE_MIN = .5
-MUTATE_MAX = 1.2
-
-LITTER_SIZE = 8
-LITTER_PER_YEAR = 10
-
-GENERATION_LIMIT = 500
-
-if NUM_RATS % 2 != 0:
-    NUM_RATS += 1
+from config import *
 
 
 def populate(num_rats, min_wt, max_wt, mode_wt):
