@@ -1,6 +1,9 @@
 import random
 import statistics
+from select import select
+
 from config import *
+from mutate import mutate
 
 
 def get_populate(num_rats, min_wt, max_wt, mode_wt):
@@ -12,21 +15,6 @@ def get_value_fitness(population, goal):
     return statistics.mean(population) / goal
 
 
-def select(population, to_retain):
-    sorted_population = sorted(population)
-
-    to_retain_by_sex = to_retain // 2
-    members_per_sex = len(sorted_population) // 2
-
-    males = sorted_population[members_per_sex:]
-    selected_males = males[-to_retain_by_sex:]
-
-    females = sorted_population[:members_per_sex]
-    selected_females = females[-to_retain_by_sex:]
-
-    return selected_males, selected_females
-
-
 def breed(males, females, litter_size):
     random.shuffle(males)
     random.shuffle(females)
@@ -36,14 +24,6 @@ def breed(males, females, litter_size):
         for child in range(litter_size):
             child = random.randint(female, male)
             children.append(child)
-
-    return children
-
-
-def mutate(children, mutate_odds, mutate_min, mutate_max):
-    for index, rat in enumerate(children):
-        if mutate_odds >= random.random():
-            children[index] = round(rat * random.uniform(mutate_min, mutate_max))
 
     return children
 
