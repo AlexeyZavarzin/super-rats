@@ -1,9 +1,11 @@
 import random
 import statistics
-from select import select
 
-from config import *
+from config import NUM_RATS, INITIAL_MIN_WT, INITIAL_MAX_WT, \
+    INITIAL_MODE_WT, GOAL, GENERATION_LIMIT, LITTER_SIZE, \
+    MUTATE_MAX, MUTATE_MIN, MUTATE_ODDS, LITTER_PER_YEAR
 from mutate import mutate
+from select import select
 
 
 def get_populate(num_rats, min_wt, max_wt, mode_wt):
